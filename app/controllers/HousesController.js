@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { houseService } from "../services/HousesService.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
@@ -27,6 +28,22 @@ export class HousesController {
             Pop.success('is get')
         } catch (error) {
             Pop.error(error)
+
+        }
+    }
+
+    async createHouse() {
+        try {
+            event.preventDefault()
+
+            const form = event.target
+
+            const houseFormData = getFormData(form)
+
+            await houseService.createHouse(houseFormData)
+
+            console.log(houseFormData);
+        } catch (error) {
 
         }
     }

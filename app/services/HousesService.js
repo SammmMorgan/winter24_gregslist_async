@@ -5,6 +5,15 @@ import { api } from "./AxiosService.js"
 class HousesService {
 
 
+
+
+    createHouse(houseFormData) {
+
+
+
+    }
+
+
     async acquireHouses() {
 
         const response = await api.get('api/houses')
@@ -12,7 +21,7 @@ class HousesService {
 
         const newHouseMaker = response.data.map(house => new House(house))
 
-        AppState.houses = newHouseMaker
+        AppState.houses = newH
     }
 
 }

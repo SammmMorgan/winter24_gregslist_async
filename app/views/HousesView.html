@@ -1,3 +1,63 @@
+<div class="p-5 fs-4 text-center">
+    <button class="btn btn-primary fs-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">Create New Listing</button>
+
+</div>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">New Listing</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form onsubmit="app.HousesController.createHouse()">
+
+            <div class="mb-3">
+                <label for="Bedrooms">Bedrooms</label>
+                <input id="Bedrooms" name="bedrooms" type="number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="bathrooms">Bathrooms</label>
+                <input id="bathrooms" name="bathrooms" type="number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Levels">Levels</label>
+                <input id="Levels" name="levels" type="number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Year">Year</label>
+                <input id="Year" name="year" type="number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="ImgUrl">ImgUrl</label>
+                <input id="ImgUrl" name="imgUrl" type="url" maxlength="500">
+            </div>
+
+            <div class="mb-3">
+                <label for="price">Price</label>
+                <input id="price" name="price" type="number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Description">Description of House</label>
+                <textarea id="Description" name="description" class="w-100" rows="10" maxlength="5000"></textarea>
+            </div>
+
+
+            <div class="text-end mb-3">
+                <button type="submit btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 <div class="container">
     <section id="houseCard" class="row">
         <!-- <div class="col-12">
