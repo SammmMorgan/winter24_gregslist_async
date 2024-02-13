@@ -7,23 +7,26 @@ export class HousesController {
 
 
     _drawHouses() {
+
         const houses = AppState.houses
         let htmlString = ''
         houses.forEach(house => htmlString += house.houseCardHTML)
         setHTML('houseCard', htmlString)
+
     }
 
     constructor() {
-        this.getHouses
+        this.getHouses()
         AppState.on('houses', this._drawHouses)
     }
     async getHouses() {
 
         try {
+            console.log('anything at all');
             await houseService.acquireHouses()
-            Pop.success
+            Pop.success('is get')
         } catch (error) {
-            Pop.error
+            Pop.error(error)
 
         }
     }
