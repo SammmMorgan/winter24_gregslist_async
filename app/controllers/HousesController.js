@@ -43,7 +43,8 @@ export class HousesController {
 
             await houseService.createHouse(houseFormData)
 
-            console.log(houseFormData);
+            form.reset()
+
         } catch (error) {
 
         }
