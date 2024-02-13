@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class House {
     constructor(data) {
         this.id = data.id
@@ -29,7 +31,7 @@ export class House {
                     <div class="col-6 text-center p-3 fs-4"> Price: ${this.price}</div>
                     <div class="col-6 text-center p-3 fs-4">By: ${this.creator.name}   <img class="creator-picture" src="${this.creator.picture}" alt=""></div>
                     <div class="col-6 text-center p-3 fs-4">
-                    <button onclick="app.HousesController.destroyHouse('${this.id}')" class="btn btn-danger">Delete</button>
+                    ${this.DeleteButton}
                     </div>
 
                 </div>
@@ -40,4 +42,14 @@ export class House {
         `
     }
 
+
+    get DeleteButton() {
+
+        if (AppState.account == null || this.creatorId != AppState.account.id) {
+            return ''
+        }
+
+        return `<button onclick="app.HousesController.destroyHouse('${this.id}')" class="btn btn-danger">Delete</button>`
+
+    }
 }

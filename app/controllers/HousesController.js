@@ -19,6 +19,7 @@ export class HousesController {
     constructor() {
         this.getHouses()
         AppState.on('houses', this._drawHouses)
+        AppState.on('account', this._drawHouses)
     }
     async getHouses() {
 
