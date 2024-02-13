@@ -4,6 +4,13 @@ import { api } from "./AxiosService.js"
 
 class HousesService {
 
+    async destroyHouse(houseId) {
+        const response = await api.delete(`api/houses/${houseId}`)
+        const houseIndex = AppState.houses.findIndex(house => house.id == houseId)
+        AppState.houses.splice(houseIndex, 1)
+
+    }
+
 
 
 

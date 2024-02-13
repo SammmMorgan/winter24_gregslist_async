@@ -48,6 +48,21 @@ export class HousesController {
         }
     }
 
+    async destroyHouse(houseId) {
+
+        try {
+            const check = await Pop.confirm('are you sure you wanna delete that?')
+
+            if (!check) {
+                return
+            }
+            await houseService.destroyHouse(houseId)
+
+        }
+        catch (error) {
+            Pop.error
+        }
+    }
 
 
 }
