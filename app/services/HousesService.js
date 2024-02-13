@@ -7,8 +7,15 @@ class HousesService {
 
 
 
-    createHouse(houseFormData) {
+    async createHouse(houseFormData) {
+        const response = await api.post('api/houses', houseFormData)
 
+        // console.log(response);
+
+        const newHouse = new House(response.data)
+
+        // console.log(newHouse);
+        AppState.houses.unshift(newHouse)
 
 
     }
@@ -21,7 +28,7 @@ class HousesService {
 
         const newHouseMaker = response.data.map(house => new House(house))
 
-        AppState.houses = newH
+        AppState.houses = newHouseMaker
     }
 
 }
